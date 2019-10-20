@@ -6,6 +6,9 @@
         <item name="colorPrimary">#E91E63</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+
     </style>
 
 </resources>

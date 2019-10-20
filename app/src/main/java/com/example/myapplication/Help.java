@@ -23,8 +23,5 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v == buttonnn){
-            tx.setText("Orale");
         }
-    }
 }

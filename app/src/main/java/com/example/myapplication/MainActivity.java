@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Galgelogik galgelogik = new Galgelogik();
@@ -77,13 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // Har fået error til halvt virke med rigtige bogstaver og med dobbeltbogstaver.
-    //TODO: Se om du kan få skærmbillede 2 til at virke
-    // TODO: Start forfra til at virke (check!)
-    // TODO: Hjælpe-skærm
-    //TODO musik når man har vundet eller tabt
-    //TODO: Andre billeder.
-
     public void billedeSkift(){
         int forkertebogstaver = galgelogik.getAntalForkerteBogstaver();
         switch (forkertebogstaver){
@@ -110,7 +107,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             default:
         }
-
-
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater =getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.action_hjælp:
+                Intent i = new Intent(this, Help.class );
+                startActivity(i);
+                break;
+            case R.id.action_setting:
+                Toast.makeText(getApplicationContext(), "Settings er valgt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_update:
+                Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
