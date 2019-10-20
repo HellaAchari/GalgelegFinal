@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,7 +22,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Galgelogik galgelogik = new Galgelogik();
-    TextView textView, textView2;
+    TextView textView, textView2, textView3;
     EditText editText;
     Button button;
     ImageView imageView;
@@ -30,9 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.textVieww);
         textView.setText(galgelogik.getSynligtOrd());
         textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
         imageView = findViewById(R.id.imageView);
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textView.startAnimation(scaleAnimation);
             textView2.setText("Yaaay du vandt med, " + galgelogik.getAntalForkerteBogstaver() + ", fejl!");
             textView2.startAnimation(rotateAnimation);
+            textView3.setText("Score: " + galgelogik.getAntalForkerteBogstaver());
         }
     }
 
@@ -122,13 +127,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.action_setting:
-                Toast.makeText(getApplicationContext(), "Settings er valgt", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_LONG).show();
                 break;
             default:
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
