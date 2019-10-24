@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button;
     ImageView imageView;
     String indtastetBogstav;
+    String ordet;
     Animation scaleAnimation, rotateAnimation;
+    int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == button){
         galgelogik.nulstil();
     }
-        textView.setText(galgelogik.getSynligtOrd());
         indtastetBogstav= editText.getText().toString();
         galgelogik.gætBogstav(indtastetBogstav);
+        textView.setText(galgelogik.getSynligtOrd());
         textView2.setText(galgelogik.getBrugteBogstaver().toString());
         editText.setText("");
         billedeSkift();
@@ -72,15 +74,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void tabtEllerVundet(){
         if (galgelogik.erSpilletTabt()){
-            textView.setText(galgelogik.getOrdet());
-            textView.startAnimation(scaleAnimation);
-            textView2.setText("ØVVV! Du tabte!");
-            textView2.startAnimation(rotateAnimation);
+            Intent i = new Intent(this, Tabt.class);
+            i.putExtra("Ordet", ordet);
+            startActivity(i);
+            ordet = galgelogik.getOrdet();
         }
         else if(galgelogik.erSpilletVundet()){
             textView.setText(galgelogik.getOrdet());
             textView.startAnimation(scaleAnimation);
-            textView2.setText("Yaaay du vandt med, " + galgelogik.getAntalForkerteBogstaver() + ", fejl!");
+            score = galgelogik.getAntalForkerteBogstaver();
+            textView2.setText("Yaaay du vandt med, " + score + ", fejl!");
             textView2.startAnimation(rotateAnimation);
             textView3.setText("Score: " + galgelogik.getAntalForkerteBogstaver());
         }
@@ -137,4 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+
+    // TODO: Lav en taber/vinder skærm: Hvordan får jeg "synligt ord" og scoren(antal) forkerte med over?
+    //TODO: Hvordan fjerner man keyboarded?
 }
