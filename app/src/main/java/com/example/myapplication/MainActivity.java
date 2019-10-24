@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void tabtEllerVundet(){
         if (galgelogik.erSpilletTabt()){
+            ordet = galgelogik.getOrdet();
             Intent i = new Intent(this, Tabt.class);
             i.putExtra("Ordet", ordet);
             startActivity(i);
-            ordet = galgelogik.getOrdet();
         }
         else if(galgelogik.erSpilletVundet()){
             textView.setText(galgelogik.getOrdet());
