@@ -24,7 +24,6 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+        finish();
         }
 }
