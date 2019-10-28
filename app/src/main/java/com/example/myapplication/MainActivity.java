@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String ordet;
     Animation scaleAnimation, rotateAnimation;
     int score;
+    String vinderOrdet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,15 +78,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ordet = galgelogik.getOrdet();
             Intent i = new Intent(this, Tabt.class);
             i.putExtra("Ordet", ordet);
+            i.putExtra("AntalF", galgelogik.getAntalForkerteBogstaver());
             startActivity(i);
         }
         else if(galgelogik.erSpilletVundet()){
-            textView.setText(galgelogik.getOrdet());
-            textView.startAnimation(scaleAnimation);
-            score = galgelogik.getAntalForkerteBogstaver();
-            textView2.setText("Yaaay du vandt med, " + score + ", fejl!");
-            textView2.startAnimation(rotateAnimation);
-            textView3.setText("Score: " + galgelogik.getAntalForkerteBogstaver());
+            vinderOrdet = galgelogik.getOrdet();
+            Intent intent = new Intent(this, Vind.class);
+            intent.putExtra("VinderOrdet", vinderOrdet);
+            intent.putExtra("AntalForkerte", galgelogik.getAntalForkerteBogstaver());
+            startActivity(intent);
         }
     }
 

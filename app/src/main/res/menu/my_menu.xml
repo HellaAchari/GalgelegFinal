@@ -14,7 +14,4 @@
         android:title="@string/update_name"
         app:showAsAction="never" />
 
-
-
-
 </menu>
