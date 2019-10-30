@@ -28,12 +28,12 @@ public class Vind extends  AppCompatActivity {
         String antalForkerte = i.getStringExtra("AntalForkerte");
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
-        //textView.startAnimation(scaleAnimation);
-        //textView.setText("YAAAY WON: ");
-        //textView2.startAnimation(rotateAnimation);
+        textView.startAnimation(scaleAnimation);
+        textView.setText("YAAAY WON: ");
+        textView2.startAnimation(rotateAnimation);
     }
 }
  //TODO: FIND UD AF HVORFOR DEN IKKE VIRKER
 // TODO: VED VIND: START FORFRA OG "SE HIGHSCORE".
 // TODO: Hvordan menuen er på hver aktivitet.
-//TODO:
+//TODO: Hvordan man får vinderbilledet til at blive antal af forkerte.

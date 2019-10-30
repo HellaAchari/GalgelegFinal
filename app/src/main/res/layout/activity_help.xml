@@ -15,6 +15,7 @@
         android:layout_marginBottom="54dp"
         android:text=""
         android:textAlignment="textStart"
+        android:background="@drawable/round_button"
         android:textColor="#E91E63"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/button4"

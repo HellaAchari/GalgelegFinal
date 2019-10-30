@@ -140,8 +140,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    // TODO: Lav en taber/vinder skærm: Hvordan får jeg "synligt ord" og scoren(antal) forkerte med over?
     //TODO: Hvordan fjerner man keyboarded?
 }
