@@ -58,6 +58,7 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,7 +66,6 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         menuInflater.inflate(R.menu.my_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){

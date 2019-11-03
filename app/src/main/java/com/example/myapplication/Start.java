@@ -16,12 +16,13 @@ import android.widget.Toast;
 
 public class Start extends AppCompatActivity implements View.OnClickListener {
     Button button;
-    TextView textView1, textView2;
+    TextView textView1, textView2, textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        textView = findViewById(R.id.textView);
         textView1 = findViewById(R.id.textView5);
         textView2 =findViewById(R.id.textView6);
         button =findViewById(R.id.button2);
@@ -32,6 +33,9 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        Intent intent =getIntent();
+        textView.setText(intent.getStringExtra("Forsøg"));
+        //TODO: HVORFOR VIRKER DET IKKE?!
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
