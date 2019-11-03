@@ -7,7 +7,7 @@
     tools:context=".Tabt">
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textView3"
         android:layout_width="231dp"
         android:layout_height="39dp"
         android:text="Hej"
@@ -23,11 +23,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="135dp"
-        android:layout_height="39dp"
+        android:layout_width="218dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="244dp"
-        android:text="TextView"
         android:background="@drawable/round_button"
+        android:text="TextView"
         android:textAlignment="center"
         android:textColor="#E91E63"
         android:textSize="24sp"
@@ -48,4 +48,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/forkert6" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/full_button"
+        android:text="Se highscore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:text="Spil igen!"
+        android:background="@drawable/full_button"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="@+id/button1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

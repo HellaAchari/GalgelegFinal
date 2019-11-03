@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editText;
     Button button;
     ImageView imageView;
-    String indtastetBogstav;
+    String indtastetBogstav; 
     String ordet;
     Animation scaleAnimation, rotateAnimation;
     int score;
@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ordet = galgelogik.getOrdet();
             Intent i = new Intent(this, Tabt.class);
             i.putExtra("Ordet", ordet);
-            i.putExtra("AntalF", galgelogik.getAntalForkerteBogstaver());
             startActivity(i);
         }
         else if(galgelogik.erSpilletVundet()){
             vinderOrdet = galgelogik.getOrdet();
+            score = galgelogik.getAntalForkerteBogstaver();
             Intent intent = new Intent(this, Vind.class);
             intent.putExtra("VinderOrdet", vinderOrdet);
-            intent.putExtra("AntalForkerte", galgelogik.getAntalForkerteBogstaver());
+            intent.putExtra("AntalFejl", score);
             startActivity(intent);
         }
     }
@@ -140,5 +140,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
-    //TODO: Hvordan fjerner man keyboarded?
 }
