@@ -34,7 +34,7 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
         String antalFejl = i.getStringExtra("AntalFejl");
-        //TODO: HVORFOR VIRKER DET IKKE!
+        //TODO: HVORFOR VIRKER DET IKKE
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
@@ -59,7 +59,6 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         }
     }
 }
-
 
 // TODO: Highscore og score.
 //TODO: Hvordan man får vinderbilledet til at blive antal af forkerte.
