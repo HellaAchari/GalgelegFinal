@@ -33,7 +33,7 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
 
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
-        String antalFejl = i.getStringExtra("AntalFejl");
+        int antalFejl = i.getIntExtra("AntalFejl",-1);
         //TODO: HVORFOR VIRKER DET IKKE
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
