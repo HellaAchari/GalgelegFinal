@@ -34,7 +34,8 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         Intent intent =getIntent();
-        textView.setText(intent.getStringExtra("Forsøg"));
+        /*int forsøg = intent.getIntExtra("Forsøg", 0);
+        textView.setText("Forsøg brugt:" + forsøg);*/
         //TODO: HVORFOR VIRKER DET IKKE?!
     }
     @Override

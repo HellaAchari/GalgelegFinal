@@ -82,9 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             i.putExtra("Ordet", ordet);
             startActivity(i);
 
-            Intent intent = new Intent(this, Start.class);
-            intent.putExtra("Forsøg", forsøg);
-
+            /*Intent intent = new Intent(this, Start.class);
+            intent.putExtra("Forsøg", forsøg);*/
         }
         else if(galgelogik.erSpilletVundet()){
             vinderOrdet = galgelogik.getOrdet();
