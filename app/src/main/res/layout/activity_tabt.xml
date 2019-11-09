@@ -69,4 +69,5 @@
         android:background="@drawable/full_button"
         app:layout_constraintStart_toEndOf="@+id/button1"
         app:layout_constraintTop_toTopOf="@+id/button1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

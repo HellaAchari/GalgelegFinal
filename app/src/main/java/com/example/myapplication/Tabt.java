@@ -17,10 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Tabt extends AppCompatActivity implements View.OnClickListener {
-    TextView textView, textView2;
+    TextView textView, textView2, textView3;
     Button button1, button2;
     Animation scaleAnimation, rotateAnimation;
     MediaPlayer lose;
+    int forsøg=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,11 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         if (v==button2){
             Galgelogik galgelogik = new Galgelogik();
             galgelogik.nulstil();
+            forsøg++;
+            System.out.println(forsøg);
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+            //TODO: GEMME DATA LOKALT.
         }
 
     }

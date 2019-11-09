@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.inputmethod.InputMethod;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -77,13 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void tabtEllerVundet(){
         if (galgelogik.erSpilletTabt()){
             ordet = galgelogik.getOrdet();
-            forsøg++;
             Intent i = new Intent(this, Tabt.class);
+            forsøg++;
+            System.out.println(forsøg);
             i.putExtra("Ordet", ordet);
+            i.putExtra("forsøg", forsøg);
             startActivity(i);
-
-            /*Intent intent = new Intent(this, Start.class);
-            intent.putExtra("Forsøg", forsøg);*/
         }
         else if(galgelogik.erSpilletVundet()){
             vinderOrdet = galgelogik.getOrdet();

@@ -34,11 +34,11 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
         int antalFejl = i.getIntExtra("AntalFejl",-1);
-        //TODO: HVORFOR VIRKER DET IKKE
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
         textView.setText("YAAAY du vandt med: " + antalFejl +" fejl!");
+        score = antalFejl;
         textView2.startAnimation(rotateAnimation);
         vind.start();
         button = findViewById(R.id.button1);
@@ -51,6 +51,8 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v == button){
             Intent i = new Intent(this, Start.class);
+            i.putExtra("antalforkerte", score);
+            System.out.println(score);
             startActivity(i);
         }
         else if (v == button1){

@@ -9,34 +9,52 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Start extends AppCompatActivity implements View.OnClickListener {
     Button button;
     TextView textView1, textView2, textView;
-
+    ArrayList<Integer> highscore = new ArrayList<>(5);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        textView = findViewById(R.id.textView);
         textView1 = findViewById(R.id.textView5);
         textView2 =findViewById(R.id.textView6);
         button =findViewById(R.id.button2);
         button.setOnClickListener(this);
+        ListView listView = findViewById(R.id.highscore);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
+        listView.setAdapter(adapter);
     }
+
 
     @Override
     public void onClick(View v) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-        Intent intent =getIntent();
-        /*int forsøg = intent.getIntExtra("Forsøg", 0);
-        textView.setText("Forsøg brugt:" + forsøg);*/
-        //TODO: HVORFOR VIRKER DET IKKE?!
+    }
+
+    public void highscoreLise(){
+        //TODO: FÅ LISTEN TIL AT VIRKE:
+        Intent intent = getIntent();
+        int antalFejl = intent.getIntExtra("antalforkerte",0);
+        System.out.println(antalFejl);
+        for ( int i=0; i < 5; i++){
+            highscore.add(antalFejl);
+            i++;
+        }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
