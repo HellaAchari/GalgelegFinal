@@ -22,12 +22,12 @@ public class Galgelogik {
 
   public Galgelogik() {
     muligeOrd.add("bil");
-    /*muligeOrd.add("computer");
-    muligeOrd.add("programmering");
-    muligeOrd.add("motorvej");
-    muligeOrd.add("busrute");
-    muligeOrd.add("gangsti");
-    muligeOrd.add("skovsnegl");
+    /*muligeOrd.add("Storhovede");
+    muligeOrd.add("Fede");
+    muligeOrd.add("Ørn");
+    muligeOrd.add("Storebror");
+    muligeOrd.add("Josef");
+    /*muligeOrd.add("skovsnegl");
     muligeOrd.add("solsort");
     muligeOrd.add("nitten");*/
     nulstil();

@@ -3,7 +3,6 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Animation scaleAnimation, rotateAnimation;
     int score;
     String vinderOrdet;
-    int forsøg = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,10 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (galgelogik.erSpilletTabt()){
             ordet = galgelogik.getOrdet();
             Intent i = new Intent(this, Tabt.class);
-            forsøg++;
-            System.out.println(forsøg);
             i.putExtra("Ordet", ordet);
-            i.putExtra("forsøg", forsøg);
             startActivity(i);
         }
         else if(galgelogik.erSpilletVundet()){

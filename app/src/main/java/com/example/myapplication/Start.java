@@ -24,7 +24,7 @@ import java.util.Collections;
 public class Start extends AppCompatActivity implements View.OnClickListener {
     Button button;
     TextView textView1, textView2, textView;
-    ArrayList<Integer> highscore = new ArrayList<>(5);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,19 +33,12 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         textView2 =findViewById(R.id.textView6);
         button =findViewById(R.id.button2);
         button.setOnClickListener(this);
+
         ListView listView = findViewById(R.id.highscore);
+        ArrayList<Integer> highscore = new ArrayList<>(5);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
         listView.setAdapter(adapter);
-    }
 
-
-    @Override
-    public void onClick(View v) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-
-    public void highscoreLise(){
         //TODO: FÅ LISTEN TIL AT VIRKE:
         Intent intent = getIntent();
         int antalFejl = intent.getIntExtra("antalforkerte",0);
@@ -55,6 +48,13 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
             i++;
         }
 
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

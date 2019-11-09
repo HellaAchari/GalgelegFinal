@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -57,6 +56,8 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
             Galgelogik galgelogik = new Galgelogik();
             galgelogik.nulstil();
             forsøg++;
+            Intent intent = new Intent(this, Vind.class);
+            intent.putExtra("forsøg", forsøg);
             System.out.println(forsøg);
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);

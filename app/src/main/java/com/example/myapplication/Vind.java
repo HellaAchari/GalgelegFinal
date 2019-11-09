@@ -34,6 +34,8 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
         int antalFejl = i.getIntExtra("AntalFejl",-1);
+        int antalForsøg = i.getIntExtra("forsøg", 0);
+        System.out.println(antalForsøg);
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
