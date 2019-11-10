@@ -26,7 +26,6 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_tabt);
         vind = MediaPlayer.create(Vind.this, R.raw.winning);
         textView2 = findViewById(R.id.textView2);
-        //textView1 = findViewById(R.id.textView4);
         textView = findViewById(R.id.textView3);
         scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
@@ -34,8 +33,6 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
         int antalFejl = i.getIntExtra("AntalFejl",-1);
-        int antalForsøg = i.getIntExtra("forsøg", 0);
-        System.out.println(antalForsøg);
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
@@ -63,6 +60,3 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         }
     }
 }
-
-// TODO: Highscore og score.
-//TODO: Hvordan man får vinderbilledet til at blive antal af forkerte.

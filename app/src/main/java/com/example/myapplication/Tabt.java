@@ -55,13 +55,8 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         if (v==button2){
             Galgelogik galgelogik = new Galgelogik();
             galgelogik.nulstil();
-            forsøg++;
-            Intent intent = new Intent(this, Vind.class);
-            intent.putExtra("forsøg", forsøg);
-            System.out.println(forsøg);
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
-            //TODO: GEMME DATA LOKALT.
         }
 
     }
