@@ -15,8 +15,8 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-        tx = findViewById(R.id.textViewwww);
-        buttonnn = findViewById(R.id.button4);
+        tx = findViewById(R.id.textViewUpdate);
+        buttonnn = findViewById(R.id.button);
         buttonnn.setOnClickListener(this);
         tx.setText("Har du problemer med at ....");
     }

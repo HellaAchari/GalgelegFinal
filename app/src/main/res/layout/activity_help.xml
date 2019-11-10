@@ -7,7 +7,7 @@
     tools:context=".Help">
 
     <TextView
-        android:id="@+id/textViewwww"
+        android:id="@+id/textViewUpdate"
         android:layout_width="213dp"
         android:layout_height="0dp"
         android:layout_marginStart="83dp"
@@ -18,12 +18,12 @@
         android:background="@drawable/round_button"
         android:textColor="#E91E63"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
@@ -32,7 +32,7 @@
         android:textColor="#E91E63"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textViewwww"
-        app:layout_constraintStart_toStartOf="@+id/textViewwww"
-        app:layout_constraintTop_toBottomOf="@+id/textViewwww" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewUpdate"
+        app:layout_constraintStart_toStartOf="@+id/textViewUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

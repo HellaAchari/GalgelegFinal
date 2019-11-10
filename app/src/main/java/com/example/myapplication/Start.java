@@ -85,6 +85,8 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.action_update:
                 Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_LONG).show();
+                Intent intet = new Intent(this, Update.class);
+                startActivity(intet);
                 break;
             default:
         }
