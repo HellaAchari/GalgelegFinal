@@ -51,6 +51,11 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         antalFejl = intent.getIntExtra("antalforkerte", 0);
         textView.setText("Sidste score: "+ antalFejl);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("sidste_score", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("sidsteScore", textView.getText().toString());
+        editor.commit();
+
         //TODO: FÅ LISTEN TIL AT VIRKE:VIRKER STADIG IKKE!
         System.out.println(antalFejl);
         sethighScore();
@@ -63,7 +68,8 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
     }
     public void sethighScore(){
         for (int i = 0; i < 5; i++) {
-            highscore.add(antalFejl);}
+            highscore.add(1000);
+        }
 
     }
     @Override
@@ -84,7 +90,7 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Der er ingen opdateringer! Men læs lidt om android!", Toast.LENGTH_LONG).show();
                 Intent intet = new Intent(this, Update.class);
                 startActivity(intet);
                 break;

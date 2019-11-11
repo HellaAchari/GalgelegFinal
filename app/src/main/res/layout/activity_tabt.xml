@@ -10,6 +10,7 @@
         android:id="@+id/textView3"
         android:layout_width="231dp"
         android:layout_height="39dp"
+        android:fontFamily="serif"
         android:text="Hej"
         android:textAlignment="center"
         android:textColor="#E91E63"
@@ -27,6 +28,7 @@
         android:layout_height="38dp"
         android:layout_marginBottom="244dp"
         android:background="@drawable/round_button"
+        android:fontFamily="serif"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#E91E63"
@@ -56,6 +58,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="480dp"
         android:background="@drawable/full_button"
+        android:fontFamily="serif"
         android:text="Se highscore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,8 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:text="Spil igen!"
         android:background="@drawable/full_button"
+        android:fontFamily="serif"
+        android:text="Spil igen!"
         app:layout_constraintStart_toEndOf="@+id/button1"
         app:layout_constraintTop_toTopOf="@+id/button1" />
 

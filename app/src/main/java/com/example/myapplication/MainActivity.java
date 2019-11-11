@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                //Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Der er ingen opdateringer!Men læs lidt om android!", Toast.LENGTH_LONG).show();
                 Intent intet = new Intent(this, Update.class);
                 startActivity(intet);
                 break;

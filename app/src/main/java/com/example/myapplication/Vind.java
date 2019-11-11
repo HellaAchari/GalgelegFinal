@@ -23,7 +23,7 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabt);
+        setContentView(R.layout.activity_vind);
         vind = MediaPlayer.create(Vind.this, R.raw.winning);
         textView2 = findViewById(R.id.textView2);
         textView = findViewById(R.id.textView3);
@@ -36,7 +36,7 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
-        textView.setText("YAAAY du vandt med: " + antalFejl +" fejl!");
+        textView.setText("YAY! Du vandt med: " + antalFejl +" fejl!");
         score = antalFejl;
         textView2.startAnimation(rotateAnimation);
         vind.start();

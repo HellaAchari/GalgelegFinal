@@ -25,17 +25,16 @@ public class Update extends AppCompatActivity implements View.OnClickListener {
         tx = findViewById(R.id.textViewUpdate);
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
-        tx.setText("Har du problemer med at ....");
-    }
-    @Override
-    public void onClick(View v) {
-        /*new AsyncTask() {
+
+        new AsyncTask() {
             String url;
+            InputStream inputStream;
+
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    url ="https://da.wikipedia.org/wiki/Google_Android" ;
-                    InputStream inputStream = new URL(url).openStream();
+                    url = "https://da.wikipedia.org/wiki/Google_Android";
+                    inputStream = new URL(url).openStream();
                     inputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -43,10 +42,17 @@ public class Update extends AppCompatActivity implements View.OnClickListener {
                 }
                 return null;
             }
+
             @Override
             protected void onPostExecute(Object wikipedialæsning) {
-                tx.setText("Læs!:/n" + url);
+                tx.setText("Læs!:\n\n" + inputStream);
             }
-        }.execute();*/
+        }.execute();
+    }
+    //TODO: HVORFOR KOMMER DET IKKE DIREKTE?
+    @Override
+    public void onClick(View v) {
+        finish();
+
     }
 }
