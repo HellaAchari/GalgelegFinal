@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText.setOnClickListener(this);
         scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+
     }
     @Override
     public void onClick(View view) {
@@ -80,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(galgelogik.erSpilletVundet()){
             vinderOrdet = galgelogik.getOrdet();
             score = galgelogik.getAntalForkerteBogstaver();
+            SharedPreferences sharedPreferences = getSharedPreferences("sidste_Score",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("sidsteScore", score);
+            editor.commit();
             Intent intent = new Intent(this, Vind.class);
             intent.putExtra("VinderOrdet", vinderOrdet);
             intent.putExtra("AntalFejl", score);

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -46,18 +47,12 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
         listView.setAdapter(adapter);
 
-        //TODO: VIRKER IKKE? GEMME LOKALT VIRKER IKKE
-        Intent intent = getIntent();
-        antalFejl = intent.getIntExtra("antalforkerte", 0);
-        textView.setText("Sidste score: "+ antalFejl);
+        SharedPreferences sharedPreferences = getSharedPreferences("sidste_Score",MODE_PRIVATE);
+        int start = sharedPreferences.getInt("sidsteScore", 0);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("sidste_score", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("sidsteScore", textView.getText().toString());
-        editor.commit();
+        textView.setText("Sidste score: "+ start);
 
         //TODO: FÅ LISTEN TIL AT VIRKE:VIRKER STADIG IKKE!
-        System.out.println(antalFejl);
         sethighScore();
     }
 
