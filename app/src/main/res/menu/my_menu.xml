@@ -11,7 +11,7 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/action_update"
-        android:title="@string/update_name"
+        android:title="Hent ord fra DR!"
         app:showAsAction="never" />
 
 </menu>

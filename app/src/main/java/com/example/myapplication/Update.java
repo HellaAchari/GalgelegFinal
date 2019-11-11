@@ -26,28 +26,6 @@ public class Update extends AppCompatActivity implements View.OnClickListener {
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
 
-        new AsyncTask() {
-            String url;
-            InputStream inputStream;
-
-            @Override
-            protected Object doInBackground(Object[] objects) {
-                try {
-                    url = "https://da.wikipedia.org/wiki/Google_Android";
-                    inputStream = new URL(url).openStream();
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return e;
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Object wikipedialæsning) {
-                tx.setText("Læs!:\n\n" + inputStream);
-            }
-        }.execute();
     }
     //TODO: HVORFOR KOMMER DET IKKE DIREKTE?
     @Override

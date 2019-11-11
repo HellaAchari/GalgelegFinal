@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,12 +55,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
         indtastetBogstav= editText.getText().toString();
         galgelogik.gætBogstav(indtastetBogstav);
+        updateView();
+        tabtEllerVundet();
+        errorMessage();
+    }
+
+    private void updateView() {
         textView.setText(galgelogik.getSynligtOrd());
         textView2.setText(galgelogik.getBrugteBogstaver().toString());
         editText.setText("");
         billedeSkift();
-        tabtEllerVundet();
-        errorMessage();
     }
 
     public void errorMessage(){
@@ -137,9 +142,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er ingen opdateringer!Men læs lidt om android!", Toast.LENGTH_LONG).show();
-                Intent intet = new Intent(this, Update.class);
-                startActivity(intet);
+                Toast.makeText(getApplicationContext(), "Der er nu valgt et ord fra regnearket!", Toast.LENGTH_LONG).show();
+                new AsyncTask<String, String, Exception>() {
+                    Galgelogik galgelogik = new Galgelogik();
+                    @Override
+                    protected Exception doInBackground(String... strings) {
+                        try {
+                            galgelogik.hentOrdFraRegneark("1");
+                            return null;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return e;
+                        }
+                    }
+
+                    @Override
+                    protected void onPostExecute(Exception e) {
+                            try {
+                                galgelogik.hentOrdFraRegneark("1");
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                            updateView();
+                    }
+                }.execute();
                 break;
             default:
         }
