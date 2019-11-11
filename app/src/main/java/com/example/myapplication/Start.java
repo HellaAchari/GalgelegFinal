@@ -32,6 +32,7 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         textView = findViewById(R.id.textVieww);
         button = findViewById(R.id.button2);
         button.setOnClickListener(this);
+
         //Listview
         ListView listView = findViewById(R.id.highscore);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
@@ -51,7 +52,6 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         for (int i = 0; i < 5; i++) {
             highscore.add(1000);
         }
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
