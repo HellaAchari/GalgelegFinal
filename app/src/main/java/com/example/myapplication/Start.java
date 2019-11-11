@@ -85,21 +85,12 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er ingen opdateringer! Men læs lidt om android!", Toast.LENGTH_LONG).show();
-                Intent intet = new Intent(this, Update.class);
-                startActivity(intet);
+                Toast.makeText(getApplicationContext(), "Gå til spillet for at hente et ord!", Toast.LENGTH_LONG).show();
                 break;
             default:
         }
         return super.onOptionsItemSelected(item);
 
-    }public void savedata(){
-        SharedPreferences sharedPreferences = getSharedPreferences("high score", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(highscore);
-        editor.putString("Highscore", json);
-        editor.apply();
     }
 
 

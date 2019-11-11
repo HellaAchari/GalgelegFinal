@@ -77,7 +77,7 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er ingen opdateringerne!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Gå til spillet for at hente et ord!", Toast.LENGTH_LONG).show();
                 break;
             default:
         }

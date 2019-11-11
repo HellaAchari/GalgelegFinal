@@ -1,15 +1,18 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Vind extends  AppCompatActivity implements View.OnClickListener {
     TextView textView, textView1, textView2;
@@ -58,5 +61,22 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
             Intent i = new Intent (this, MainActivity.class);
             startActivity(i);
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.action_hjælp:
+                Intent i = new Intent(this, Help.class );
+                startActivity(i);
+                break;
+            case R.id.action_setting:
+                Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.action_update:
+                Toast.makeText(getApplicationContext(), "Gå til spillet for at hente et ord!", Toast.LENGTH_LONG).show();
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

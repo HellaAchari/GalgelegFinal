@@ -142,9 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "Setting er valgt(gør intet)", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_update:
-                Toast.makeText(getApplicationContext(), "Der er nu valgt et ord fra regnearket!", Toast.LENGTH_LONG).show();
                 new AsyncTask<String, String, Exception>() {
-                    Galgelogik galgelogik = new Galgelogik();
                     @Override
                     protected Exception doInBackground(String... strings) {
                         try {
@@ -164,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 ex.printStackTrace();
                             }
                             updateView();
+                            Toast.makeText(getApplicationContext(), "Der er nu valgt et ord fra regnearket!", Toast.LENGTH_LONG).show();
+
                     }
                 }.execute();
                 break;
