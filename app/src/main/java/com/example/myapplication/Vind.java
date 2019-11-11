@@ -2,10 +2,11 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,11 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Vind extends  AppCompatActivity implements View.OnClickListener {
-    TextView textView, textView1, textView2;
+    TextView textView, textView2;
     Button button, button1;
     Animation scaleAnimation;
     Animation rotateAnimation;
-    Galgelogik galgelogik = new Galgelogik();
     int score;
     MediaPlayer vind;
 
@@ -36,6 +36,7 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         String vinderOrd = i.getStringExtra("VinderOrdet");
         int antalFejl = i.getIntExtra("AntalFejl",-1);
+
         textView2.setText(vinderOrd);
         textView2.startAnimation(scaleAnimation);
         textView.startAnimation(scaleAnimation);
@@ -61,6 +62,13 @@ public class Vind extends  AppCompatActivity implements View.OnClickListener {
             Intent i = new Intent (this, MainActivity.class);
             startActivity(i);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater =getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

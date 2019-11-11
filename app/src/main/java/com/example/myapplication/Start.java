@@ -2,36 +2,26 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 
 public class Start extends AppCompatActivity implements View.OnClickListener {
     Button button;
     TextView textView1, textView2, textView;
     ArrayList<Integer> highscore = new ArrayList<>(10);
-    int antalFejl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +36,9 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         ListView listView = findViewById(R.id.highscore);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
         listView.setAdapter(adapter);
-
         SharedPreferences sharedPreferences = getSharedPreferences("sidste_Score",MODE_PRIVATE);
         int start = sharedPreferences.getInt("sidsteScore", 0);
-
         textView.setText("Sidste score: "+ start);
-
-        //TODO: FÅ LISTEN TIL AT VIRKE:VIRKER STADIG IKKE!
         sethighScore();
     }
 
@@ -90,8 +76,5 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
             default:
         }
         return super.onOptionsItemSelected(item);
-
     }
-
-
 }

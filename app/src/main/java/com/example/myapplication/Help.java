@@ -20,7 +20,6 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
         buttonnn.setOnClickListener(this);
         tx.setText("Har du problemer med at ....");
     }
-
     @Override
     public void onClick(View v) {
         finish();

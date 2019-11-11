@@ -16,11 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Tabt extends AppCompatActivity implements View.OnClickListener {
-    TextView textView, textView2, textView3;
+    TextView textView, textView2;
     Button button1, button2;
     Animation scaleAnimation, rotateAnimation;
     MediaPlayer lose;
-    int forsøg=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         textView2.setText(tabtOrd);
         textView.startAnimation(scaleAnimation);
         textView2.startAnimation(rotateAnimation);
-
     }
 
     @Override
@@ -58,7 +56,6 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
