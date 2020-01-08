@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Start">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="141dp"
-        android:layout_height="214dp"
-        android:layout_marginStart="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.228"
-        app:srcCompat="@drawable/galge" />
+    tools:context=".Start"
+    >
 
     <TextView
         android:id="@+id/textView5"
@@ -39,14 +27,16 @@
         android:id="@+id/button2"
         android:layout_width="118dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginBottom="368dp"
         android:background="@drawable/full_button"
         android:fontFamily="serif"
         android:text="Start spil!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/textView6"
@@ -54,27 +44,30 @@
         android:layout_height="39dp"
         android:layout_marginStart="80dp"
         android:fontFamily="serif"
-        android:text="Highscore: (intet)"
+        android:text="Tidligere spiller: "
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#EB004E"
-        android:textSize="18sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.614" />
 
     <ListView
-        android:id="@+id/highscore"
+        android:id="@+id/names"
         android:layout_width="416dp"
-        android:layout_height="139dp"
+        android:layout_height="233dp"
+        android:layout_marginTop="21dp"
         android:background="#51E91E63"
+        android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -92,5 +85,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.103" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="263dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Indtast dit navn for at spille!"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

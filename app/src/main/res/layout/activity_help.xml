@@ -16,7 +16,7 @@
         android:background="@drawable/round_button"
         android:fontFamily="serif"
         android:text=""
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#E91E63"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/button"

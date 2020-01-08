@@ -11,17 +11,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Start extends AppCompatActivity implements View.OnClickListener {
     Button button;
     TextView textView1, textView2, textView;
-    ArrayList<Integer> highscore = new ArrayList<>(10);
+    EditText editText;
+    ArrayList<String> navneAfBrugere = new ArrayList<>();
+    int start;
+    ArrayAdapter adapter;
+    String fåNavn;
+    Gson gson = new Gson();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Type navneHistorik = new TypeToken<ArrayList<String>>(){}.getType();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,27 +46,58 @@ public class Start extends AppCompatActivity implements View.OnClickListener {
         textView = findViewById(R.id.textVieww);
         button = findViewById(R.id.button2);
         button.setOnClickListener(this);
+        editText = findViewById(R.id.editText);
+        editText.setOnClickListener(this);
+
 
         //Listview
-        ListView listView = findViewById(R.id.highscore);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, highscore);
+        ListView listView = findViewById(R.id.names);
+
+        sharedPreferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        String navne = sharedPreferences.getString("Navne","null");
+
+        if(!navne.equals("null")){
+            navneAfBrugere = gson.fromJson(navne,navneHistorik);
+
+        }
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, navneAfBrugere);
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
         SharedPreferences sharedPreferences = getSharedPreferences("sidste_Score",MODE_PRIVATE);
-        int start = sharedPreferences.getInt("sidsteScore", 0);
+        start = sharedPreferences.getInt("sidsteScore", 0);
         textView.setText("Sidste score: "+ start);
-        sethighScore();
     }
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-    public void sethighScore(){
-        for (int i = 0; i < 5; i++) {
-            highscore.add(1000);
+        fåNavn = editText.getText().toString();
+        if (navneAfBrugere.size()<10&&fåNavn.length()<12 && fåNavn.length()!=0){
+            navneAfBrugere.add(fåNavn);
+            Collections.sort(navneAfBrugere);
+            editText.setText("");
+            editor.putString("Navne", gson.toJson(navneAfBrugere, navneHistorik));
+            editor.apply();
+                if (button==v){
+                    Intent i = new Intent(this, MainActivity.class);
+                    startActivity(i);
+                }
+        }
+         else{
+            navneAfBrugere.remove(0);
+            }
+        if (fåNavn.length() >12){
+            editText.setError("For langt et navn!");
+            editText.setText("");
+        }
+        else if (fåNavn.length() == 0 ){
+            editText.setError("Indtast et navn, tak! ");
+            editText.setText("");
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater =getMenuInflater();

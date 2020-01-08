@@ -27,7 +27,7 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_tabt);
         lose = MediaPlayer.create(Tabt.this,R.raw.losing);
         textView =findViewById(R.id.textView3);
-        textView.setText("ØVV! Du tabte :-(");
+        textView.setText("ØVV! Du tabte :-(((");
         textView2 = findViewById(R.id.textView2);
         lose.start();
         button1 = findViewById(R.id.button1);
@@ -36,7 +36,6 @@ public class Tabt extends AppCompatActivity implements View.OnClickListener {
         button2.setOnClickListener(this);
         scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
-
         Intent intent =getIntent();
         String tabtOrd = intent.getStringExtra("Ordet");
         textView2.setText(tabtOrd);

@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText.setOnClickListener(this);
         scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
-
     }
+
     @Override
     public void onClick(View view) {
         if(view == button){
@@ -79,17 +79,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void tabtEllerVundet(){
         if (galgelogik.erSpilletTabt()){
             ordet = galgelogik.getOrdet();
+            int forkerteBogstaver = galgelogik.getAntalForkerteBogstaver();
             Intent i = new Intent(this, Tabt.class);
-            i.putExtra("Ordet", ordet);
+            i.putExtra("Ordet", ordet);;
             startActivity(i);
         }
         else if(galgelogik.erSpilletVundet()){
             vinderOrdet = galgelogik.getOrdet();
             score = galgelogik.getAntalForkerteBogstaver();
+            int gemtScore = (vinderOrdet.length()*10)-score*2;
             SharedPreferences sharedPreferences = getSharedPreferences("sidste_Score",MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("sidsteScore", score);
+            editor.putInt("sidsteScore", gemtScore);
             editor.commit();
+
             Intent intent = new Intent(this, Vind.class);
             intent.putExtra("VinderOrdet", vinderOrdet);
             intent.putExtra("AntalFejl", score);
@@ -152,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             return e;
                         }
                     }
-
                     @Override
                     protected void onPostExecute(Exception e) {
                             try {

@@ -18,7 +18,7 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
         tx = findViewById(R.id.textViewUpdate);
         buttonnn = findViewById(R.id.button);
         buttonnn.setOnClickListener(this);
-        tx.setText("Har du problemer med at ....");
+        tx.setText(" Har du problemer med at ... (gør intet");
     }
     @Override
     public void onClick(View v) {
